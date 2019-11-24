@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>
     </div>
     <router-view/>
   </div>
@@ -31,8 +31,9 @@
 </style>
 
 <script>
-import router from './router'
+
 export default {
   name : 'App',
+  
 }
 </script>
