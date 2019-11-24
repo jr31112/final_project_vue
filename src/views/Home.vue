@@ -6,7 +6,6 @@
 
 <script>
 import axios from 'axios'
-// import router from '../router'
 
 import MovieList from '@/components/MovieList.vue'
 
@@ -24,6 +23,7 @@ export default {
     getMovies(){
       axios.get(`http://127.0.0.1:8000/api/v1/movies/`, this.options)
     .then(response => {
+      console.log(response.data)
       this.movies = response.data
     })
     .catch(error => {
