@@ -3,6 +3,7 @@
         <img :src="movie.img_url" :alt="movie.title">
         <div>
             <h2> {{movie.title}} </h2>
+            {{movie}}
             <p>평점 : {{movie.rating}} </p>
             <!-- <label for="director">감독 :</label>
             <img width="100" :src="movie.director.img_url" id='director' :alt="movie.director.ko_name">{{movie.director.ko_name}} -->
@@ -13,7 +14,7 @@
         <div>
             <h3>출연진</h3>
             <div v-for="actor in movie.actors" :key="actor.id">
-                <img :src="actor.img_url" :alt="actor.ko_name">
+                <img :src="actor.img_url" :alt="actor.ko_name" @click="selectPerson(actor.id)">
             </div>
         </div>
 
@@ -21,6 +22,7 @@
 </template>
 
 <script>
+import router from '../router'
 export default {
     name:'MovieDetail',
     props:{
@@ -29,6 +31,11 @@ export default {
             required: true
         }
     },
+    methods:{
+        selectPerson(personId){
+            router.push({name:'people', params:{id:personId}})
+        }
+    }
 }
 </script>
 
