@@ -3,7 +3,6 @@
         <img :src="movie.img_url" :alt="movie.title">
         <div>
             <h2> {{movie.title}} </h2>
-            {{movie}}
             <p>평점 : {{movie.rating}} </p>
             <!-- <label for="director">감독 :</label>
             <img width="100" :src="movie.director.img_url" id='director' :alt="movie.director.ko_name">{{movie.director.ko_name}} -->

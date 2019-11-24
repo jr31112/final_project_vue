@@ -12,6 +12,7 @@
 
 <script>
 import axios from 'axios'
+import router from '../router'
 export default {
     name: 'signup',
     data() {
@@ -30,12 +31,13 @@ export default {
             axios.post('http://127.0.0.1:8000/api/v1/accounts/', this.signUpUser)
                 .then(response => {
                     console.log(response)
+                    router.push({name:'login'})
                 })
                 .catch(error => {
                     console.log(error)
                 })
                 this.signUpUser = {}
-        }
+        },
     }
 }
 </script>
