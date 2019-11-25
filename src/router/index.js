@@ -5,6 +5,8 @@ import Detail from '../views/Detail.vue'
 import People from '../views/People.vue'
 import Login from '../views/Login.vue'
 import Signup from '../views/SignUp.vue'
+import Search from '../views/Search.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -32,7 +34,12 @@ const routes = [
     path: '/signup',
     name: 'signup',
     component: Signup
-  }
+  },
+  {
+    path: '/search/:query',
+    name: 'search',
+    component: Search
+  },
 ]
 
 const router = new VueRouter({

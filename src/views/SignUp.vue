@@ -40,6 +40,7 @@ export default {
                 .then(response => {
                     console.log(response)
                     this.errormessage = {username: [], password: []}
+                    router.push({name:'home'})
                 })
                 .catch(error => {
                     console.log(error.response)

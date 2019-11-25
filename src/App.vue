@@ -1,11 +1,12 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/login">Login</router-link> |
-      <router-link to="/signup">SignUp</router-link>
+      <router-link :to="{name:'home'}">Home</router-link> |
+      <router-link :to="{name:'login'}">Login</router-link> |
+      <router-link :to="{name:'signup'}">SignUp</router-link>
+      <search-form/>
     </div>
-    <router-view/>
+    <router-view :key="$route.fullPath"/>
   </div>
 </template>
 
@@ -33,9 +34,12 @@
 </style>
 
 <script>
+import SearchForm from '@/components/SearchForm.vue'
 
 export default {
   name : 'App',
-  
+  components : {
+    SearchForm,
+  },
 }
 </script>
