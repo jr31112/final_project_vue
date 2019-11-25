@@ -12,6 +12,7 @@
 
 <script>
 import axios from 'axios'
+import router from '../router'
 export default {
     data() {
         return {
@@ -26,6 +27,7 @@ export default {
                     const token = response.data.token
                     this.$session.start()
                     this.$session.set('jwt', token)
+                    router.push({name:'home'})
                 })
                 .catch(error => {
                     console.log(error)

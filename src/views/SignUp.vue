@@ -16,6 +16,7 @@
 
 <script>
 import axios from 'axios'
+import router from '../router'
 export default {
     name: 'signup',
     data() {
@@ -47,7 +48,7 @@ export default {
                     console.log(this.errormessage)
                 })
                 this.signUpUser = {}
-        }
+        },
     }
 }
 </script>
