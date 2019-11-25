@@ -3,7 +3,8 @@
     <div id="nav">
       <router-link :to="{name:'home'}">Home</router-link> |
       <router-link :to="{name:'login'}">Login</router-link> |
-      <router-link :to="{name:'signup'}">SignUp</router-link>
+      <router-link :to="{name:'signup'}">SignUp</router-link> |
+      <router-link :to="{name:'reviews'}">Reviews</router-link>
       <search-form/>
     </div>
     <router-view :key="$route.fullPath"/>

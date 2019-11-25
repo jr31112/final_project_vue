@@ -9,6 +9,7 @@
             <br>
             <label for="overview">개요 </label>
             <p id='overview'>{{movie.overview}}</p>
+            <iframe id="ytplayer" type="text/html" width="640" height="360" :src="youtube" frameborder="0"></iframe>
         </div>
         <div>
             <h3>출연진</h3>
@@ -22,8 +23,16 @@
 
 <script>
 import router from '../router'
+
 export default {
     name:'MovieDetail',
+    data(){
+        return{
+            youtube : 'https://www.youtube.com/embed/3WUw9thZR4k'
+            
+        }
+        
+    },
     props:{
         movie:{
             type : Object,
@@ -33,8 +42,8 @@ export default {
     methods:{
         selectPerson(personId){
             router.push({name:'people', params:{id:personId}})
-        }
-    }
+        },
+    },
 }
 </script>
 
