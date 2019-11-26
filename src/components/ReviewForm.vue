@@ -39,8 +39,10 @@ export default {
                 'user_score' : this.user_score
             }
             axios.post(`http://127.0.0.1:8000/api/v1/movies/${this.$props.movie.id}/reviews/${jwtDecode(token).user_id}/`, this.new_review)
-            .then(response => {
-                console.log(response)
+            .then( ()=> {
+                this.$emit('reviewUpdateEvent')
+                this.content = ''
+                this.user_score = 0
             })
             .catch(error => {
                 console.log(error)

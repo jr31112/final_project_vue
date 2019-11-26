@@ -5,8 +5,7 @@
           {{review.user.username}}님
           {{review.user_score}}
           {{review.content}}
-          <button @click="deleteReview(reviews.id)">삭제</button>
-          <button @click="updateReview(reviews.id)">수정</button>
+          <button @click="deleteReview(review.id)">삭제</button>
       </div>
   </div>
 </template>
@@ -27,26 +26,16 @@ export default {
         deleteReview(reviewId){
             this.$session.start()
             const token = this.$session.get('jwt')
-            axios.delete(`http://127.0.0.1:8000/api/v1/reviews/${reviewId}/${jwtDecode(token).user_id}/`, this.options)
+            axios.delete(`http://127.0.0.1:8000/api/v1/reviews/${reviewId}/${jwtDecode(token).user_id}/`, {headers: {Authorization : `JWT ${token}`}})
             .then(response=>{
+                this.$emit('reviewUpdateEvent')
                 console.log(response)
             })
             .catch(error =>{
                 console.log(error)
             })
         },
-        updateReview(reviewId){
-            this.$session.start()
-            const token = this.$session.get('jwt')
-            axios.put(`http://127.0.0.1:8000/api/v1/reviews/${reviewId}/${jwtDecode(token).user_id}/`, this.options)
-            .then(response=>{
-                console.log(response)
-            })
-            .catch(error =>{
-                console.log(error)
-            })
-        },
-    }
+    },
 }
 </script>
 

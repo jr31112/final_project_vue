@@ -22,8 +22,8 @@
                 <img :src="actor.img_url" :alt="actor.ko_name" @click="selectPerson(actor.id)">
             </div>
         </div>
-        <review-form :movie='movie'/>
-        <review-detail :reviews='movie.review_set || []'/>
+        <review-form :movie='movie' @reviewUpdateEvent='reviewUpdate'/>
+        <review-detail :reviews='movie.review_set || []' @reviewUpdateEvent='reviewUpdate'/>
     </div>
 </template>
 
@@ -48,6 +48,9 @@ export default {
     methods:{
         selectPerson(personId){
             router.push({name:'people', params:{id:personId}})
+        },
+        reviewUpdate(){
+            this.$emit('reviewUpdateEvent')
         },
     },
 }

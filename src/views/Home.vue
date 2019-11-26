@@ -6,7 +6,7 @@
 
 <script>
 import axios from 'axios'
-
+import jwtDecode from 'jwt-decode'
 import MovieList from '@/components/MovieList.vue'
 
 export default {
@@ -21,7 +21,19 @@ export default {
   },
   methods : {
     getMovies(){
-      axios.get(`http://127.0.0.1:8000/api/v1/movies/`, this.options)
+      this.$session.start()
+      let user_id
+      if (this.$session.get('jwt')){
+        user_id = jwtDecode(this.$session.get('jwt')).user_id
+      }
+      else {
+        user_id = ''
+      }
+
+      
+      axios.get(`http://127.0.0.1:8000/api/v1/movies/`, {params:{
+        user_id:user_id
+      }})
     .then(response => {
       this.movies = response.data
     })

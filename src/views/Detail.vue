@@ -1,6 +1,6 @@
 <template>
   <div class="detail">
-      <movie-detail :movie='movie'/>
+      <movie-detail :movie='movie' @reviewUpdateEvent='selectMovie'/>
   </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
             .catch(error => {
               console.log(error)
             })
-        }
+        },
     },
     mounted(){
         this.selectMovie()
