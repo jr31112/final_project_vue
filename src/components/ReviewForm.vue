@@ -14,6 +14,7 @@
 <script>
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
+import router from '../router'
 
 export default {
     name:'ReviewForm',
@@ -34,19 +35,30 @@ export default {
         newReview(){
             this.$session.start()
             const token = this.$session.get('jwt')
-            this.new_review = {
-                'content' : this.content,
-                'user_score' : this.user_score
+            if (token != undefined) {
+                const options = {
+                    headers: {
+                        Authorization : `JWT ${token}`
+                    }
+                }
+                this.new_review = {
+                    'content' : this.content,
+                    'user_score' : this.user_score
+                }
+                axios.post(`http://127.0.0.1:8000/api/v1/movies/${this.$props.movie.id}/reviews/${jwtDecode(token).user_id}/`, this.new_review, options)
+                .then( ()=> {
+                    this.$emit('reviewUpdateEvent')
+                    this.content = ''
+                    this.user_score = 0
+                })
+                .catch(error => {
+                    console.log(error)
+                    router.push({name:'login'})
+                })
             }
-            axios.post(`http://127.0.0.1:8000/api/v1/movies/${this.$props.movie.id}/reviews/${jwtDecode(token).user_id}/`, this.new_review)
-            .then( ()=> {
-                this.$emit('reviewUpdateEvent')
-                this.content = ''
-                this.user_score = 0
-            })
-            .catch(error => {
-                console.log(error)
-            })
+            else {
+                router.push({name:'login'})
+            }
         }
     }
 }

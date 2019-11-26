@@ -35,7 +35,13 @@ export default {
 
             this.credentials = {}
         }
-    }
+    },
+    // mounted() {
+    //     if (this.$session.has('jwt')){
+    //         // console.log(this.$session.get('jwt'))
+    //         router.push({name:'home'})
+    //     }
+    // }
 }
 </script>
 

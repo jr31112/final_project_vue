@@ -54,6 +54,9 @@ export default {
       this.$session.destroy()
       this.isAuthenticated = this.$session.has('jwt')
       router.push({name:'home'})
+        .catch(() => {
+          
+        })
     }
   },
   updated() {

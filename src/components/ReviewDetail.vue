@@ -13,7 +13,7 @@
 <script>
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
-
+import router from '../router'
 export default {
     name: 'ReviewDetail',
     props:{
@@ -26,14 +26,26 @@ export default {
         deleteReview(reviewId){
             this.$session.start()
             const token = this.$session.get('jwt')
-            axios.delete(`http://127.0.0.1:8000/api/v1/reviews/${reviewId}/${jwtDecode(token).user_id}/`, {headers: {Authorization : `JWT ${token}`}})
-            .then(response=>{
-                this.$emit('reviewUpdateEvent')
-                console.log(response)
-            })
-            .catch(error =>{
-                console.log(error)
-            })
+            console.log(token)
+            if (token != undefined){
+                const options = {
+                    headers: {
+                        Authorization : `JWT ${token}`
+                    }
+                }
+                axios.delete(`http://127.0.0.1:8000/api/v1/reviews/${reviewId}/${jwtDecode(token).user_id}/`, options)
+                .then(response=>{
+                    this.$emit('reviewUpdateEvent')
+                    console.log(response)
+                })
+                .catch(error =>{
+                    console.log(error)
+                    router.push({name:'login'})
+                })
+            }
+            else {
+                router.push({name:'login'})
+            }
         },
     },
 }
