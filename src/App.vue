@@ -4,7 +4,8 @@
       <router-link :to="{name:'home'}">Home</router-link> |
       <router-link :to="{name:'login'}">Login</router-link> |
       <router-link :to="{name:'signup'}">SignUp</router-link> |
-      <router-link :to="{name:'reviews'}">Reviews</router-link>
+      <router-link :to="{name:'reviews'}">Reviews</router-link> |
+      <a @click="logout">Logout</a>
       <search-form/>
     </div>
     <router-view :key="$route.fullPath"/>
@@ -42,5 +43,10 @@ export default {
   components : {
     SearchForm,
   },
+  methods: {
+    logout() {
+      this.$session.destroy()
+    }
+  }
 }
 </script>
