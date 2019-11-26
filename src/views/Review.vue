@@ -1,18 +1,18 @@
 <template>
   <div class="Review">
       <h2>최신 리뷰</h2>
-      <review-detail :reviews='reviews'/>
+      <review-index :reviews='reviews'/>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import ReviewDetail from '@/components/ReviewDetail.vue'
+import ReviewIndex from '@/components/ReviewIndex.vue'
 
 export default {
     name:"Review",
     components:{
-        ReviewDetail,
+        ReviewIndex,
     },
     data(){
         return{
@@ -21,8 +21,9 @@ export default {
     },
     methods:{
         getReviews(){
-            axios.get(``, this.options)
+            axios.get(`http://127.0.0.1:8000/api/v1/reviews/`, this.options)
         .then(response =>{
+            console.log(response)
             this.reviews = response.data
         })
         .catch(error => {
@@ -30,9 +31,9 @@ export default {
         })
         }
     },
-    // mounted(){
-    //     this.getReviews()
-    // },
+    mounted(){
+        this.getReviews()
+    }
 }
 </script>
 

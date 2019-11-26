@@ -9,7 +9,12 @@
             <br>
             <label for="overview">개요 </label>
             <p id='overview'>{{movie.overview}}</p>
-            <iframe id="ytplayer" type="text/html" width="640" height="360" :src="youtube" frameborder="0"></iframe>
+            <div v-if="movie.trailer">
+                <iframe id="ytplayer" type="text/html" width="640" height="360" :src="movie.trailer" frameborder="0"></iframe>
+            </div>
+            <div v-else>
+                <p>트레일러 영상이 없네여....ㅠㅠㅠ</p>
+            </div>
         </div>
         <div>
             <h3>출연진</h3>
@@ -17,27 +22,28 @@
                 <img :src="actor.img_url" :alt="actor.ko_name" @click="selectPerson(actor.id)">
             </div>
         </div>
-
+        <review-form :movie='movie'/>
+        <review-detail :reviews='movie.review_set || []'/>
     </div>
 </template>
 
 <script>
 import router from '../router'
 
+import ReviewForm from '@/components/ReviewForm.vue'
+import ReviewDetail from '@/components/ReviewDetail.vue'
+
 export default {
     name:'MovieDetail',
-    data(){
-        return{
-            youtube : 'https://www.youtube.com/embed/3WUw9thZR4k'
-            
-        }
-        
-    },
     props:{
         movie:{
             type : Object,
             required: true
         }
+    },
+    components:{
+        ReviewForm,
+        ReviewDetail,
     },
     methods:{
         selectPerson(personId){

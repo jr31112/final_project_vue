@@ -1,7 +1,7 @@
 <template>
   <div class="people-detail">
       <img :src="person.img_url" :alt="person.ko_name">
-      <div v-if="person.actor_movies.length">
+      <div v-if="person.actor_movies && person.actor_movies.length">
           <h2>출연 영화</h2>
           <div v-for="movie in person.actor_movies" :key="movie.id">
               <img :src="movie.img_url" :alt="movie.title" @click="selectMovie(movie.id)">
