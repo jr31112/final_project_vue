@@ -5,8 +5,8 @@
             <h2> {{movie.title}} </h2>
             <p>평점 : {{movie.rating}} </p>
             <!-- <label for="director">감독 :</label>
-            <img width="100" :src="movie.director.img_url" id='director' :alt="movie.director.ko_name">{{movie.director.ko_name}} -->
-            <br>
+            <img width="100" :src="movie.director.img_url || 0" id='director' :alt="movie.director.ko_name">{{movie.director.ko_name}}
+            <br> -->
             <label for="overview">개요 </label>
             <p id='overview'>{{movie.overview}}</p>
             <div v-if="movie.trailer">
