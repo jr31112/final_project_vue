@@ -6,7 +6,6 @@ import People from '../views/People.vue'
 import Login from '../views/Login.vue'
 import Signup from '../views/SignUp.vue'
 import Search from '../views/Search.vue'
-import Review from '../views/Review.vue'
 
 Vue.use(VueRouter)
 
@@ -40,11 +39,6 @@ const routes = [
     path: '/search/:query',
     name: 'search',
     component: Search
-  },
-  {
-    path: '/reviews',
-    name: 'reviews',
-    component: Review
   },
 ]
 

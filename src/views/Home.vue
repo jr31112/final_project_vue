@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <movie-list :movies='movies'/>
+    <review/>
   </div>
 </template>
 
@@ -8,11 +9,13 @@
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
 import MovieList from '@/components/MovieList.vue'
+import Review from '@/components/Review.vue'
 
 export default {
   name: 'home',
   components: {
     MovieList,
+    Review,
   },
   data() {
     return {
