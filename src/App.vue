@@ -2,10 +2,10 @@
   <div id="app">
     <div id="nav">
       <router-link :to="{name:'home'}">Home</router-link> |
-      <router-link :to="{name:'login'}">Login</router-link> |
-      <router-link :to="{name:'signup'}">SignUp</router-link> |
-      <router-link :to="{name:'reviews'}">Reviews</router-link> |
-      <a @click="logout">Logout</a>
+        <router-link v-if="!isAuthenticated" :to="{name:'login'}">Login</router-link> |
+        <router-link v-if="!isAuthenticated" :to="{name:'signup'}">SignUp</router-link>
+      <a v-else @click.prevent="logout">Logout</a> |
+      <router-link :to="{name:'reviews'}">Reviews</router-link>
       <search-form/>
     </div>
     <router-view :key="$route.fullPath"/>
@@ -37,16 +37,27 @@
 
 <script>
 import SearchForm from '@/components/SearchForm.vue'
+import router from './router'
 
 export default {
   name : 'App',
   components : {
     SearchForm,
   },
+  data() {
+    return {
+      isAuthenticated: this.$session.has('jwt')
+    }
+  },
   methods: {
     logout() {
       this.$session.destroy()
+      this.isAuthenticated = this.$session.has('jwt')
+      router.push({name:'home'})
     }
-  }
+  },
+  updated() {
+    this.isAuthenticated = this.$session.has('jwt')
+  },
 }
 </script>
