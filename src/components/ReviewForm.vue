@@ -2,7 +2,7 @@
     <div class="ReviewForm">
         <p class="headline"> 리뷰를 작성해 주세요</p>
         <form @submit.prevent="newReview">
-            <v-rating v-model="user_score" length="10" color="yellow-darken-1" background-color="yellow-darken-1">   </v-rating>
+            <v-rating v-model="user_score" length="10" color="amber darken-1" background-color="amber darken-1">   </v-rating>
             <v-text-field
             v-model="content"
             placeholder="소중한 의견을 달아주세요"

@@ -3,6 +3,7 @@
       <h3>다른 유저들의 댓글 입니다.</h3>
       <div v-for="review in reviews" :key=review.id>
           {{review.user.username}}님
+          <v-rating length="10" v-model='review.user_score' readonly="readonly"></v-rating>
           {{review.user_score}}
           {{review.content}}
           <button @click="deleteReview(review.id)">삭제</button>
