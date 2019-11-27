@@ -1,45 +1,36 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link :to="{name:'home'}">Home</router-link> |
-        <router-link v-if="!isAuthenticated" :to="{name:'login'}">Login</router-link> |
-        <router-link v-if="!isAuthenticated" :to="{name:'signup'}">SignUp</router-link>
-        <a v-else @click.prevent="logout">Logout</a> |
-      <search-form/>
-    </div>
+  <v-app>
+    <nav>
+      <v-toolbar app>
+        <v-toolbar-title class="headline text-uppercase">
+          <span>Vuetify</span>
+          <span class="font-weight-light">MATERIAL DESIGN</span>
+        </v-toolbar-title>
+        <v-spacer></v-spacer>
+        <div>
+          <div>
+          <router-link :to="{name:'home'}">Home</router-link> 
+          <router-link v-if="!isAuthenticated" :to="{name:'login'}">Login</router-link> 
+          <router-link v-if="!isAuthenticated" :to="{name:'signup'}">SignUp</router-link>
+          <a v-else @click.prevent="logout">Logout</a>
+          </div>
+          <div>
+          <search-form/>
+          </div>
+        </div>
+          
+          
+      </v-toolbar>
+    </nav>
     <router-view :key="$route.fullPath"/>
-  </div>
+  </v-app>
 </template>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
 
 <script>
 import SearchForm from '@/components/SearchForm.vue'
 import router from './router'
-
 export default {
-  name : 'App',
+  name: 'App',
   components : {
     SearchForm,
   },
@@ -61,5 +52,5 @@ export default {
   updated() {
     this.isAuthenticated = this.$session.has('jwt')
   },
-}
+};
 </script>
