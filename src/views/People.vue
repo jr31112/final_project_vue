@@ -1,5 +1,5 @@
 <template>
-  <div class="people">
+  <div class="people mt-5">
       <people-detail :person='person'/>
   </div>
 </template>

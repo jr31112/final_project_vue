@@ -1,12 +1,14 @@
 <template>
     <div class="ReviewForm">
-        <h3>댓글을 입력해주세요</h3>
+        <p class="headline"> 리뷰를 작성해 주세요</p>
         <form @submit.prevent="newReview">
-            <label for="user_score">평점: </label>
-            <input type="number" id="user_score" v-model.number="user_score"><br>
-            <label for="content">리뷰: </label>
-            <input type="text" id="content" v-model="content"><br>
-            <button type="submit">제출</button>
+            <v-rating v-model="user_score" length="10" color="yellow-darken-1" background-color="yellow-darken-1">   </v-rating>
+            <v-text-field
+            v-model="content"
+            placeholder="소중한 의견을 달아주세요"
+            required>
+            </v-text-field>
+            <v-btn id="submitbutton" class="mr-4 white" type="submit">제출하기</v-btn>
         </form>
     </div>
 </template>
@@ -65,5 +67,8 @@ export default {
 </script>
 
 <style>
-
+    #submitbutton {
+        position: relative;
+        left: 96%;
+    }
 </style>

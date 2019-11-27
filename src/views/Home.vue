@@ -1,8 +1,10 @@
 <template>
+  <v-container>
   <div class="home">
     <movie-list :movies='movies'/>
     <review/>
   </div>
+  </v-container>
 </template>
 
 <script>

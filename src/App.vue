@@ -1,26 +1,23 @@
 <template>
   <v-app>
-    <nav>
-      <v-toolbar app>
+    <nav style="position: sticky; z-index: 1;">  
+      <v-app-bar app>
+      <v-toolbar>
         <v-toolbar-title class="headline text-uppercase">
-          <span>Vuetify</span>
-          <span class="font-weight-light">MATERIAL DESIGN</span>
+          <span>영화추천사이트</span>
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <div>
-          <div>
-          <router-link :to="{name:'home'}">Home</router-link> 
-          <router-link v-if="!isAuthenticated" :to="{name:'login'}">Login</router-link> 
-          <router-link v-if="!isAuthenticated" :to="{name:'signup'}">SignUp</router-link>
-          <a v-else @click.prevent="logout">Logout</a>
-          </div>
-          <div>
-          <search-form/>
-          </div>
+            <router-link tag="span" :to="{name:'home'}"><v-btn class="mx-2">Home</v-btn></router-link>
+            <router-link  v-if="!isAuthenticated" tag="span" :to="{name:'login'}"><v-btn class="mx-2" >Login</v-btn></router-link>
+             <router-link v-if="!isAuthenticated" tag="span" :to="{name:'signup'}"><v-btn class="mx-2" >SignUp</v-btn></router-link>
+            <span v-else @click.prevent="logout"><v-btn class="mx-2" >Logout</v-btn></span>
         </div>
-          
-          
+        <div class="mt-5">
+          <search-form/>
+        </div>
       </v-toolbar>
+      </v-app-bar>
     </nav>
     <router-view :key="$route.fullPath"/>
   </v-app>
@@ -54,3 +51,8 @@ export default {
   },
 };
 </script>
+<style>
+  #app {
+    background-color: rgba(231, 230, 230, 0.945);
+  }
+</style>

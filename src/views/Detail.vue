@@ -1,5 +1,5 @@
 <template>
-  <div class="detail">
+  <div class="detail" style="margin-top:64px;">
       <movie-detail :movie='movie' @reviewUpdateEvent='selectMovie'/>
   </div>
 </template>

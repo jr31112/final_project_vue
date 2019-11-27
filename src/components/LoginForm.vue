@@ -1,12 +1,26 @@
 <template>
   <div class="LoginForm">
-  <form @submit.prevent="login">
-      <label for="username">username: </label>
-      <input type="text" id="username" v-model="credentials.username"><br>
-      <label for="password">password: </label>
-      <input type="password" id="password" v-model="credentials.password"><br>
-      <button type="submit">로그인</button>
-  </form>
+      <div  class='mx-auto text-centor' style="width:600px; height:250px" >
+        <p class='headline text-center'>로그인</p>
+        <form @submit.prevent="login">
+            <!-- 위쪽에 아이콘 넣어서 홈으로 돌아가기 했으면 좋겠음 -> 로고가 필요함(네이버 로그인 페이지 마냥) -->
+            <v-text-field
+            v-model="credentials.username"
+            placeholder="아이디"
+            required>
+            </v-text-field>
+            <v-text-field
+            v-model="credentials.password"
+            placeholder="비밀번호"
+            required
+            type="password">
+            </v-text-field>
+            <v-btn class="mr-4 white" @click="login">로그인</v-btn>
+            <v-btn class="mr-4 white" @click="clear">다시 입력하기</v-btn>
+            <v-btn class="white" @click="signup">회원가입</v-btn>
+        </form>
+
+    </div>
   </div>
 </template>
 
@@ -34,17 +48,22 @@ export default {
                 })
 
             this.credentials = {}
-        }
+        },
+      clear () {
+        this.credentials.username = ''
+        this.credentials.password = ''
+      },
+      signup (){
+          router.push({name:'signup'})
+      }
     },
-    // mounted() {
-    //     if (this.$session.has('jwt')){
-    //         // console.log(this.$session.get('jwt'))
-    //         router.push({name:'home'})
-    //     }
-    // }
 }
 </script>
 
 <style>
-
+    .LoginForm {
+        box-shadow: 5px 5px 5px 5px gray;
+        padding: 20px;
+        background-color: #ffffff;
+    }
 </style>
