@@ -74,7 +74,9 @@
         <review-form :movie='movie' @reviewUpdateEvent='reviewUpdate' />
       </div>
     </v-container>
+    <v-container>
         <review-detail :reviews='movie.review_set || []' @reviewUpdateEvent='reviewUpdate' />
+    </v-container>
   </div>
 </template>
 
