@@ -1,12 +1,12 @@
 <template>
   <div class="ReviewDetail">
-      <h3>다른 유저들의 댓글 입니다.</h3>
+      <p class="headline  font-weight-black">다른 유저의 리뷰입니다</p>
       <div v-for="review in reviews" :key=review.id>
-          {{review.user.username}}님
-          <v-rating length="10" v-model='review.user_score' readonly="readonly"></v-rating>
-          {{review.user_score}}
-          {{review.content}}
-          <button @click="deleteReview(review.id)">삭제</button>
+          <p class="font-weight-black my-0">{{review.user.username}}</p>
+          <v-rating class="my-2" length="10" v-model='review.user_score' readonly="readonly"></v-rating>
+          <p class="content">{{review.content}}</p>
+            <v-btn id="reviewdelete" @click="deleteReview(review.id)">삭제</v-btn>
+            <hr class="mt-5">
       </div>
   </div>
 </template>
@@ -53,5 +53,14 @@ export default {
 </script>
 
 <style>
-
+    .content {
+        float: left;
+        min-height: 50px;
+    }
+    #reviewdelete {
+        float: right;
+    }
+    hr {
+        clear: both;
+    }
 </style>
