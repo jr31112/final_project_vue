@@ -1,5 +1,5 @@
 <template>
-  <div class='search' :key='this.$route.fullPath'>
+  <div class='search' :key='this.$route.fullPath' style="margin-top:64px;">
       <search-result :movies='movies'/>
   </div>
 </template>
@@ -27,7 +27,6 @@ export default {
                 console.log(error)
             })
         },
-        
     },
     mounted(){
             this.selectQuery()

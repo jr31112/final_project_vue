@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <nav style="position: sticky; z-index: 1;">  
+    <nav style="position: sticky; z-index: 1;" >  
       <v-app-bar app>
       <v-toolbar>
         <v-toolbar-title class="headline text-uppercase">
@@ -11,7 +11,7 @@
             <router-link tag="span" :to="{name:'home'}"><v-btn class="mx-2">Home</v-btn></router-link>
             <router-link  v-if="!isAuthenticated" tag="span" :to="{name:'login'}"><v-btn class="mx-2" >Login</v-btn></router-link>
              <router-link v-if="!isAuthenticated" tag="span" :to="{name:'signup'}"><v-btn class="mx-2" >SignUp</v-btn></router-link>
-            <span v-else @click.prevent="logout"><v-btn class="mx-2" >Logout</v-btn></span>
+            <span v-else @click.prevent="logout"><v-btn class="mx-2">Logout</v-btn></span>
         </div>
         <div class="mt-5">
           <search-form/>
