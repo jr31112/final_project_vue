@@ -40,7 +40,7 @@ export default {
     },
     methods: {
         login() {
-            axios.post('http://127.0.0.1:8000/api-token-auth/', this.credentials)
+            axios.post('http://15.165.77.221/api-token-auth/', this.credentials)
                 .then(response => {
                     const token = response.data.token
                     this.$session.start()

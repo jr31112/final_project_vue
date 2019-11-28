@@ -47,7 +47,7 @@ export default {
                     'content' : this.content,
                     'user_score' : this.user_score
                 }
-                axios.post(`http://127.0.0.1:8000/api/v1/movies/${this.$props.movie.id}/reviews/${jwtDecode(token).user_id}/`, this.new_review, options)
+                axios.post(`http://15.165.77.221/api/v1/movies/${this.$props.movie.id}/reviews/${jwtDecode(token).user_id}/`, this.new_review, options)
                 .then( ()=> {
                     this.$emit('reviewUpdateEvent')
                     this.content = ''

@@ -32,7 +32,7 @@ export default {
       else {
         user_id = ''
       }
-      axios.get(`http://127.0.0.1:8000/api/v1/movies/`, {params:{
+      axios.get(`http://15.165.77.221/api/v1/movies/`, {params:{
         user_id:user_id
       }})
     .then(response => {

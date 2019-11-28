@@ -55,7 +55,7 @@ export default {
                 'password2' : this.password2,
                 'like_movies' : [],
             }
-            axios.post('http://127.0.0.1:8000/api/v1/accounts/', this.signUpUser)
+            axios.post('http://15.165.77.221/api/v1/accounts/', this.signUpUser)
                 .then(() => {
                     this.errormessage = {username: [], password: []}
                     router.push({name:'home'})

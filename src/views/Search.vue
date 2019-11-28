@@ -19,7 +19,7 @@ export default {
     },
     methods : {
         selectQuery(){
-            axios.get(`http://127.0.0.1:8000/api/v1/search/${this.$route.params.query}`, this.options)
+            axios.get(`http://15.165.77.221/api/v1/search/${this.$route.params.query}`, this.options)
             .then(response=> {
                 this.movies = response.data
             })

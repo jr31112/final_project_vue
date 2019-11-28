@@ -4,7 +4,7 @@
       
       <v-toolbar>
         <v-toolbar-title class="headline text-uppercase">
-          <router-link tag="a" :to="{name:'home'}"><img src="./assets/logo.png" alt="으어어어엉" width="100"></router-link>
+          <router-link tag="a" :to="{name:'home'}"><img src="./assets/logo.png" alt="로고" width="100"></router-link>
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <div>

@@ -21,7 +21,7 @@ export default {
     },
     methods:{
         getReviews(){
-            axios.get(`http://127.0.0.1:8000/api/v1/reviews/`, this.options)
+            axios.get(`http://15.165.77.221/api/v1/reviews/`, this.options)
         .then(response =>{
             console.log(response)
             this.reviews = response.data

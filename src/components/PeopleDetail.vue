@@ -1,23 +1,27 @@
 <template>
   <div class="people-detail">
-    <v-container class="grey lighten-5 mt-5">
-      <v-row class='mb=6 mt-5 ml-5' justify="center">
-        <v-col :cols='4'>
+    <v-container class="grey lighten-5 mt-5" fluid>
+      <v-row id="moviedetail_back" class='mb=6 mt-5' justify="center">
+        <v-col :cols='4' class="d-flex align-center justify-center">
+          <div>
             <v-img v-if="person.img_url && person.img_url != undefined" width='300' height="450" :src="person.img_url" :alt="person.ko_name"></v-img>
             <v-img v-else src="../assets/noimage.jpg" :alt="person.ko_name" width="300" height="450"></v-img>
+          </div>
         </v-col>
-        <v-col :cols='8' justify='center'>
-            <p class="display-1 font-weight-black">{{person.ko_name}}</p>
-            <p>{{person.en_name}}</p>
-            <p class="headline font-weight-black">인물정보</p>
-            <p class="title font-weight-black">생애</p>
-            <p v-if="person.birthday && person.birthday != undefined">{{person.birthday}} ~ {{person.deathday}}</p>
-            <p v-else>. . .</p>
-            <p class="title font-weight-black">성별</p>
-            <p>{{person.gender}}</p>
-            <p class="title font-weight-black">출생지</p>
-            <p v-if="person.place_of_birth">{{person.place_of_birth}}</p>
-            <p v-else>. . .</p>
+        <v-col :cols='8' justify='center' class="d-flex align-center">
+          <div>
+            <p style="color:white;" class="display-1 font-weight-black">{{person.ko_name}}</p>
+            <p style="color:white;">{{person.en_name}}</p>
+            <p style="color:white;" class="headline font-weight-black">인물정보</p>
+            <p style="color:white;" class="title font-weight-black">생애</p>
+            <p style="color:white;" v-if="person.birthday && person.birthday != undefined">{{person.birthday}} ~ {{person.deathday}}</p>
+            <p style="color:white;" v-else>. . .</p>
+            <p style="color:white;" class="title font-weight-black">성별</p>
+            <p style="color:white;">{{person.gender}}</p>
+            <p style="color:white;" class="title font-weight-black">출생지</p>
+            <p style="color:white;" v-if="person.place_of_birth">{{person.place_of_birth}}</p>
+            <p style="color:white;" v-else>. . .</p>
+          </div>
         </v-col>
       </v-row>
       <br>
@@ -76,5 +80,8 @@ export default {
 </script>
 
 <style>
-
+  #moviedetail_back {
+    height: 600px;
+    background-color: #41423D;
+  }
 </style>

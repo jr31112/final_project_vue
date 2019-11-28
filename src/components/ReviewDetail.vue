@@ -34,7 +34,7 @@ export default {
                         Authorization : `JWT ${token}`
                     }
                 }
-                axios.delete(`http://127.0.0.1:8000/api/v1/reviews/${reviewId}/${jwtDecode(token).user_id}/`, options)
+                axios.delete(`http://15.165.77.221/api/v1/reviews/${reviewId}/${jwtDecode(token).user_id}/`, options)
                 .then(response=>{
                     this.$emit('reviewUpdateEvent')
                     console.log(response)

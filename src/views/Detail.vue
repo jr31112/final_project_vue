@@ -21,7 +21,7 @@ export default {
     },
     methods:{
         selectMovie(){
-            axios.get(`http://127.0.0.1:8000/api/v1/movies/${this.$route.params.id}`, this.options)
+            axios.get(`http://15.165.77.221/api/v1/movies/${this.$route.params.id}`, this.options)
             .then(response=> {
                 this.movie = response.data
             })
