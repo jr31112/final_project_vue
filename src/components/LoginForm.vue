@@ -1,6 +1,10 @@
 <template>
   <div class="LoginForm">
+      <div style="position:relative; left:35%;">
+          <router-link tag="a" :to="{name:'home'}"><img src="../assets/logo.png" alt="로고"></router-link>
+      </div>
       <div  class='mx-auto text-centor' style="width:600px; height:250px" >
+        
         <p class='headline text-center'>로그인</p>
         <form @submit.prevent="login">
             <!-- 위쪽에 아이콘 넣어서 홈으로 돌아가기 했으면 좋겠음 -> 로고가 필요함(네이버 로그인 페이지 마냥) -->

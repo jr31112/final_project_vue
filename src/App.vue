@@ -1,10 +1,10 @@
 <template>
   <v-app>
     <nav style="position: sticky; z-index: 1;" >  
-      <v-app-bar app>
+      
       <v-toolbar>
         <v-toolbar-title class="headline text-uppercase">
-          <span>영화추천사이트</span>
+          <router-link tag="a" :to="{name:'home'}"><img src="./assets/logo.png" alt="으어어어엉" width="100"></router-link>
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <div>
@@ -17,7 +17,7 @@
           <search-form/>
         </div>
       </v-toolbar>
-      </v-app-bar>
+
     </nav>
     <router-view :key="$route.fullPath"/>
   </v-app>

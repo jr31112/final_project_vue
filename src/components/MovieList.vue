@@ -1,5 +1,5 @@
 <template>
-  <div class="movie-list mt-5">
+  <div class="movie-list">
       <h2>이런 영화 어떠세요</h2>
     <div v-if="movies.length > 0">
     <carousel-3d :controls-visible="true" :controls-prev-html="'&#10092;'" :controls-next-html="'&#10093;'" 

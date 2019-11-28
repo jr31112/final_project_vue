@@ -32,7 +32,6 @@
     </v-container>
     <v-container>
       <div id="divtrailer">
-
       <p class="headline font-weight-black">예고편</p>
       <v-row v-if="movie.trailer" class="mb-3 d-flex justify-center">
         <iframe id="ytplayer" type="text/html" width="640" height="360" :src="movie.trailer" frameborder="0"></iframe>
@@ -62,7 +61,7 @@
         <v-card shaped elevation='10' class="mx-3 my-5" width="300" v-for="actor in movie.actors" :key="actor.id">
           <v-img v-if="actor.img_url && actor.img_url != undefined" width='300' height="450" :src="actor.img_url"
             :alt="actor.ko_name" @click="selectPerson(actor.id)"></v-img>
-          <v-img v-else src="../assets/noimage.jpg" :alt="movie.title" width="300" height="450"></v-img>
+          <v-img v-else src="../assets/noimage.jpg" :alt="movie.title" width="300" height="450" @click="selectPerson(actor.id)"></v-img>
           <v-card-title class='font-weight-black'>{{actor.ko_name}}</v-card-title>
         </v-card>
       </v-row>
@@ -79,13 +78,10 @@
     </v-container>
   </div>
 </template>
-
 <script>
   import router from '../router'
-
   import ReviewForm from '@/components/ReviewForm.vue'
   import ReviewDetail from '@/components/ReviewDetail.vue'
-
   export default {
     name: 'MovieDetail',
     props: {
@@ -113,10 +109,9 @@
     },
   }
 </script>
-
 <style>
   #moviedetail_back {
-    height: 530px;
-    background-color: #41423d;
+    height: 600px;
+    background-color: #41423D;
   }
 </style>

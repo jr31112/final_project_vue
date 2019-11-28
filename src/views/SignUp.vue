@@ -1,6 +1,10 @@
 <template>
-<div class="signup mt-5">
-    <div class='mx-auto text-centor' style="width:600px; height:600px" >
+<div class="signup">
+    
+    <div class='signupForm mx-auto text-centor' style="width:600px; height:700px" >
+        <div style="position:relative; left:35%;">
+          <router-link tag="a" :to="{name:'home'}"><img src="../assets/logo.png" alt="로고"></router-link>
+      </div>
         <p class='title text-center'>회원가입</p>
         <form @submit.prevent="signup">
             <v-text-field
@@ -63,13 +67,28 @@ export default {
                 this.signUpUser = {}
         },
         clear() {
-            this.credentials.username = ''
-            this.credentials.password = ''
+            this.username = ''
+            this.password = ''
+            this.password2= ''
+            this.errormessage.username = []
+            this.errormessage.password = []
         },
     }
 }
 </script>
 
 <style>
-
+    .signupForm {
+        box-shadow: 5px 5px 5px 5px gray;
+        padding: 20px;
+        background-color: #ffffff;
+    }
+    .signup {
+        position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-items: center;
+    }
 </style>

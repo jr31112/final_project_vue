@@ -6,13 +6,11 @@
   </div>
   </v-container>
 </template>
-
 <script>
 import axios from 'axios'
 import jwtDecode from 'jwt-decode'
 import MovieList from '@/components/MovieList.vue'
 import Review from '@/components/Review.vue'
-
 export default {
   name: 'home',
   components: {
@@ -34,8 +32,6 @@ export default {
       else {
         user_id = ''
       }
-
-      
       axios.get(`http://127.0.0.1:8000/api/v1/movies/`, {params:{
         user_id:user_id
       }})
@@ -49,7 +45,6 @@ export default {
   },
   mounted(){
     this.getMovies()
-    
   },
 }
 </script>
