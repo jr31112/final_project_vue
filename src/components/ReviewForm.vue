@@ -1,6 +1,6 @@
 <template>
     <div class="ReviewForm">
-        <p class="headline"> 리뷰를 작성해 주세요</p>
+        <p class="headline  font-weight-black"> 리뷰를 작성해 주세요</p>
         <form @submit.prevent="newReview">
             <v-rating v-model="user_score" length="10" color="amber darken-1" background-color="amber darken-1">   </v-rating>
             <v-text-field
