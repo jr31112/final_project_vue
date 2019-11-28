@@ -27,7 +27,6 @@ export default {
         deleteReview(reviewId){
             this.$session.start()
             const token = this.$session.get('jwt')
-            console.log(token)
             if (token != undefined){
                 const options = {
                     headers: {
@@ -35,12 +34,11 @@ export default {
                     }
                 }
                 axios.delete(`http://15.165.77.221/api/v1/reviews/${reviewId}/${jwtDecode(token).user_id}/`, options)
-                .then(response=>{
+                .then(()=>{
                     this.$emit('reviewUpdateEvent')
-                    console.log(response)
                 })
-                .catch(error =>{
-                    console.log(error)
+                .catch(() =>{
+                    
                     router.push({name:'login'})
                 })
             }

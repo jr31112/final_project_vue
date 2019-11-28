@@ -47,8 +47,8 @@ export default {
                     this.$session.set('jwt', token)
                     router.push({name:'home'})
                 })
-                .catch(error => {
-                    console.log(error)
+                .catch(() => {
+                    
                 })
 
             this.credentials = {}

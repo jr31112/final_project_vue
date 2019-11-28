@@ -53,8 +53,7 @@ export default {
                     this.content = ''
                     this.user_score = 0
                 })
-                .catch(error => {
-                    console.log(error)
+                .catch(() => {
                     router.push({name:'login'})
                 })
             }

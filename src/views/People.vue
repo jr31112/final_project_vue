@@ -24,8 +24,7 @@ export default {
             .then(response=> {
                     this.person = response.data
                 })
-            .catch(error => {
-                console.log(error)
+            .catch(() => {
                 })
         }
     },

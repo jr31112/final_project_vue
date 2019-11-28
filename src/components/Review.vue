@@ -23,11 +23,9 @@ export default {
         getReviews(){
             axios.get(`http://15.165.77.221/api/v1/reviews/`, this.options)
         .then(response =>{
-            console.log(response)
             this.reviews = response.data
         })
-        .catch(error => {
-            console.log(error)
+        .catch(() => {
         })
         }
     },

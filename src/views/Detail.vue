@@ -25,8 +25,7 @@ export default {
             .then(response=> {
                 this.movie = response.data
             })
-            .catch(error => {
-              console.log(error)
+            .catch(() => {
             })
         },
     },
